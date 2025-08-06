@@ -121,7 +121,6 @@
         height: 24px; /* Adjust this value to match the size of your text */
         width: auto;
         display: block; /* Helps prevent extra space below the image */
-        vertical-align: middle; /* Aligns icon with the text on the same line */
         transition: transform 0.2s ease-in-out; /* Adds a smooth hover effect */
     }
 
