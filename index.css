@@ -108,38 +108,99 @@ ul {
     cursor: pointer;
 }
 
+/* --- STYLES FOR THE NEW ADMIN ICON --- */
+
+/* Style the link containing the admin icon */
+.main-nav .admin-link {
+    /* Removes any default padding that might be on other nav links */
+    padding: 0; 
+}
+
+/* Style the admin icon image itself */
+.main-nav .admin-link img {
+    height: 24px; /* Adjust this value to match the size of your text */
+    width: auto;
+    display: block; /* Helps prevent extra space below the image */
+    vertical-align: middle; /* Aligns icon with the text on the same line */
+    transition: transform 0.2s ease-in-out; /* Adds a smooth hover effect */
+}
+
+/* Optional: Add a subtle zoom effect on hover */
+.main-nav .admin-link:hover img {
+    transform: scale(1.15);
+}
+
 /* ============================================= */
 /* HERO VIDEO BACKGROUND                         */
 /* ============================================= */
+
+/* 1. This is the main container for the video and button */
 .hero-video-background {
-    position: relative;
-    height: 100vh;
+    position: relative;          /* ESSENTIAL: Allows us to position children (video, button) inside it */
+    height: 100vh;               /* Makes the section fill the full height of the browser window */
     width: 100%;
-    overflow: hidden;
+    overflow: hidden;            /* Prevents scrollbars if the video is slightly larger */
 }
 
+/* 2. This styles the video element itself */
 .background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -2;
-    transform: translateX(-50%) translateY(-50%);
-    object-fit: cover;
+    position: absolute;          /* Positions the video relative to .hero-video-background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* CRITICAL: Makes the video cover the entire area without stretching */
+    z-index: 1;                  /* Puts the video on the base layer */
 }
 
+/* 3. This is the dark layer on top of the video to make text readable */
 .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust the last number (0.4) to make it darker or lighter */
+    z-index: 2;                  /* Sits on top of the video */
 }
 
+/* 4. This is the container for your button */
+.hero-content {
+    position: absolute;
+    /* This combination perfectly centers the content */
+    left: 50%;
+    bottom: 15%;                 /* Position 15% from the bottom (adjust as needed) */
+    transform: translateX(-50%); /* Shifts the element left by half its own width */
+    z-index: 3;                  /* Sits on top of the overlay, making it visible */
+    text-align: center;
+}
+
+/* 5. This styles the "Apply Now" button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--castleton-green);
+    color: var(--white);
+    font-family: var(--font-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 6. Hover effect for the button */
+.cta-button:hover {
+    background-color: transparent;
+    border-color: var(--white);
+    color: var(--white);
+    /* FIXED: Removed the translateX(-50%) which caused the leftward shift */
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 /* ============================================= */
 /* PHOTO & CONTEXT SHOWCASE SECTION              */
 /* ============================================= */
